@@ -5,6 +5,13 @@ terraform {
             version = "=3.95.0"
         }
     }
+    
+    backend "azurerm" {
+      resource_group_name = "radeks-state"      
+      storage_account_name = "radekstfstate"      
+      container_name = "tstate"      
+      key = "terraform.tfstate"      
+    }
 } 
 
 provider "azurerm" {
