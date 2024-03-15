@@ -5,7 +5,7 @@ terraform {
             version = "=3.95.0"
         }
     }
-    
+
     backend "azurerm" {
       resource_group_name = "radeks-state"      
       storage_account_name = "radekstfstate"      
@@ -20,7 +20,7 @@ provider "azurerm" {
 
 resource "azurerm_resource_group" "rgFromTerraform" {
   name = "radeks-rg"
-  location = "UK South"
+  location = var.primary_location
 }
 
 resource "azurerm_virtual_network" "vnetFromTerraform" {
